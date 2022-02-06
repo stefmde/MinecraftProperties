@@ -7,6 +7,7 @@ public class PropertyWrapper<T>
         IniName = iniName;
         Value = defaultValue;
         DefaultValue = defaultValue;
+        Type = typeof(T);
         AddedInVersion = addedInVersion;
         Description = description;
         MinValue = minValue;
@@ -16,6 +17,8 @@ public class PropertyWrapper<T>
     public T Value { get; private set; }
     
     public T DefaultValue { get; }
+
+    public Type Type { get; private set; }
     
     public int? MinValue { get; }
     
