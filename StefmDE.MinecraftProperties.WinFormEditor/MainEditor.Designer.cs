@@ -30,19 +30,22 @@
         {
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.tbxConfigFile = new System.Windows.Forms.TextBox();
+            this.tbxConfigFileRead = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnLoadConfig = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnNewConfig = new System.Windows.Forms.Button();
+            this.btnSaveConfig = new System.Windows.Forms.Button();
+            this.tbxConfigFileWrite = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.ColumnKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDefaultValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMinValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnMaxValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAddedInVersion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNewConfig = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,27 +53,28 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // tbxConfigFile
+            // tbxConfigFileRead
             // 
-            this.tbxConfigFile.Location = new System.Drawing.Point(53, 27);
-            this.tbxConfigFile.Name = "tbxConfigFile";
-            this.tbxConfigFile.Size = new System.Drawing.Size(894, 27);
-            this.tbxConfigFile.TabIndex = 0;
-            this.tbxConfigFile.Text = "C:\\Dev\\MinecraftProperties\\StefmDE.MinecraftProperties.TestConsole\\Samples\\Server" +
+            this.tbxConfigFileRead.Location = new System.Drawing.Point(66, 27);
+            this.tbxConfigFileRead.Name = "tbxConfigFileRead";
+            this.tbxConfigFileRead.Size = new System.Drawing.Size(882, 27);
+            this.tbxConfigFileRead.TabIndex = 0;
+            this.tbxConfigFileRead.Text = "C:\\Dev\\MinecraftProperties\\StefmDE.MinecraftProperties.TestConsole\\Samples\\Server" +
     ".properties";
+            this.tbxConfigFileRead.TextChanged += new System.EventHandler(this.tbxConfigFileRead_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 30);
+            this.label1.Location = new System.Drawing.Point(14, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 20);
+            this.label1.Size = new System.Drawing.Size(46, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "File:";
+            this.label1.Text = "Read:";
             // 
             // btnLoadConfig
             // 
-            this.btnLoadConfig.Location = new System.Drawing.Point(953, 25);
+            this.btnLoadConfig.Location = new System.Drawing.Point(954, 26);
             this.btnLoadConfig.Name = "btnLoadConfig";
             this.btnLoadConfig.Size = new System.Drawing.Size(94, 29);
             this.btnLoadConfig.TabIndex = 2;
@@ -91,12 +95,12 @@
             this.ColumnKey,
             this.ColumnType,
             this.ColumnDefaultValue,
+            this.ColumnValue,
             this.ColumnMinValue,
             this.ColumnMaxValue,
-            this.ColumnValue,
             this.ColumnAddedInVersion,
             this.ColumnDescription});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 82);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 107);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -104,8 +108,46 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1136, 310);
+            this.dataGridView1.Size = new System.Drawing.Size(1136, 617);
             this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // btnNewConfig
+            // 
+            this.btnNewConfig.Location = new System.Drawing.Point(1054, 26);
+            this.btnNewConfig.Name = "btnNewConfig";
+            this.btnNewConfig.Size = new System.Drawing.Size(94, 29);
+            this.btnNewConfig.TabIndex = 4;
+            this.btnNewConfig.Text = "New";
+            this.btnNewConfig.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveConfig
+            // 
+            this.btnSaveConfig.Location = new System.Drawing.Point(1054, 59);
+            this.btnSaveConfig.Name = "btnSaveConfig";
+            this.btnSaveConfig.Size = new System.Drawing.Size(94, 29);
+            this.btnSaveConfig.TabIndex = 5;
+            this.btnSaveConfig.Text = "Save";
+            this.btnSaveConfig.UseVisualStyleBackColor = true;
+            this.btnSaveConfig.Click += new System.EventHandler(this.btnSaveConfig_Click);
+            // 
+            // tbxConfigFileWrite
+            // 
+            this.tbxConfigFileWrite.Location = new System.Drawing.Point(66, 60);
+            this.tbxConfigFileWrite.Name = "tbxConfigFileWrite";
+            this.tbxConfigFileWrite.Size = new System.Drawing.Size(982, 27);
+            this.tbxConfigFileWrite.TabIndex = 6;
+            this.tbxConfigFileWrite.Text = "C:\\Dev\\MinecraftProperties\\StefmDE.MinecraftProperties.TestConsole\\Samples\\Server" +
+    ".properties";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Write:";
             // 
             // ColumnKey
             // 
@@ -131,6 +173,14 @@
             this.ColumnDefaultValue.ReadOnly = true;
             this.ColumnDefaultValue.Width = 80;
             // 
+            // ColumnValue
+            // 
+            this.ColumnValue.HeaderText = "Value";
+            this.ColumnValue.MinimumWidth = 6;
+            this.ColumnValue.Name = "ColumnValue";
+            this.ColumnValue.ReadOnly = true;
+            this.ColumnValue.Width = 125;
+            // 
             // ColumnMinValue
             // 
             this.ColumnMinValue.HeaderText = "Min value";
@@ -146,14 +196,6 @@
             this.ColumnMaxValue.Name = "ColumnMaxValue";
             this.ColumnMaxValue.ReadOnly = true;
             this.ColumnMaxValue.Width = 90;
-            // 
-            // ColumnValue
-            // 
-            this.ColumnValue.HeaderText = "Value";
-            this.ColumnValue.MinimumWidth = 6;
-            this.ColumnValue.Name = "ColumnValue";
-            this.ColumnValue.ReadOnly = true;
-            this.ColumnValue.Width = 125;
             // 
             // ColumnAddedInVersion
             // 
@@ -172,25 +214,19 @@
             this.ColumnDescription.ReadOnly = true;
             this.ColumnDescription.Width = 114;
             // 
-            // btnNewConfig
-            // 
-            this.btnNewConfig.Location = new System.Drawing.Point(1053, 25);
-            this.btnNewConfig.Name = "btnNewConfig";
-            this.btnNewConfig.Size = new System.Drawing.Size(94, 29);
-            this.btnNewConfig.TabIndex = 4;
-            this.btnNewConfig.Text = "New";
-            this.btnNewConfig.UseVisualStyleBackColor = true;
-            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1160, 404);
+            this.ClientSize = new System.Drawing.Size(1160, 736);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.tbxConfigFileWrite);
+            this.Controls.Add(this.btnSaveConfig);
             this.Controls.Add(this.btnNewConfig);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnLoadConfig);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbxConfigFile);
+            this.Controls.Add(this.tbxConfigFileRead);
             this.Name = "MainEditor";
             this.Text = "Minecraft Properties - Main Editor - StefmDE";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -203,17 +239,20 @@
 
         private OpenFileDialog openFileDialog1;
         private SaveFileDialog saveFileDialog1;
-        private TextBox tbxConfigFile;
+        private TextBox tbxConfigFileRead;
         private Label label1;
         private Button btnLoadConfig;
         private DataGridView dataGridView1;
         private Button btnNewConfig;
+        private Button btnSaveConfig;
+        private TextBox tbxConfigFileWrite;
+        private Label label2;
         private DataGridViewTextBoxColumn ColumnKey;
         private DataGridViewTextBoxColumn ColumnType;
         private DataGridViewTextBoxColumn ColumnDefaultValue;
+        private DataGridViewTextBoxColumn ColumnValue;
         private DataGridViewTextBoxColumn ColumnMinValue;
         private DataGridViewTextBoxColumn ColumnMaxValue;
-        private DataGridViewTextBoxColumn ColumnValue;
         private DataGridViewTextBoxColumn ColumnAddedInVersion;
         private DataGridViewTextBoxColumn ColumnDescription;
     }

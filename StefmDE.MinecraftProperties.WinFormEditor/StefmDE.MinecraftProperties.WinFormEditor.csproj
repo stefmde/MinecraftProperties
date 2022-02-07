@@ -12,4 +12,13 @@
       <ProjectReference Include="..\StefmDE.MinecraftProperties.Properties\StefmDE.MinecraftProperties.Properties.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="PropertyEditorBool.cs">
+        <SubType>Form</SubType>
+      </Compile>
+      <Compile Update="PropertyEditorString.cs">
+        <SubType>Form</SubType>
+      </Compile>
+    </ItemGroup>
+
 </Project>

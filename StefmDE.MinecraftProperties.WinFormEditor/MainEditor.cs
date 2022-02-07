@@ -13,6 +13,8 @@ namespace StefmDE.MinecraftProperties.WinFormEditor
 {
     public partial class MainEditor : Form
     {
+        private ServerProperties _currentProperties;
+
         public MainEditor()
         {
             InitializeComponent();
@@ -20,12 +22,12 @@ namespace StefmDE.MinecraftProperties.WinFormEditor
 
         private void btnLoadConfig_Click(object sender, EventArgs e)
         {
-            ServerProperties properties = new ServerProperties();
-            properties.LoadFile(tbxConfigFile.Text);
-            LoadPropertiesToUi(properties);
+            _currentProperties = new ServerProperties();
+            _currentProperties.LoadFile(tbxConfigFileRead.Text);
+            LoadPropertiesToUi();
         }
 
-        private void LoadPropertiesToUi(ServerProperties serverProperties)
+        private void LoadPropertiesToUi()
         {
             dataGridView1.Rows.Clear();
 
@@ -33,14 +35,84 @@ namespace StefmDE.MinecraftProperties.WinFormEditor
             var properties = type.GetProperties();
             foreach (var property in properties)
             {
-                var prop = (dynamic)property.GetValue(serverProperties);
+                var prop = (dynamic)property.GetValue(_currentProperties);
 
                 dataGridView1.Rows.Add(prop.IniName, prop.Type.Name, prop.DefaultValue, prop.MinValue, prop.MaxValue, prop.Value, prop.AddedInVersion?.ToString(), prop.Description);
             }
 
-
-
             dataGridView1.Sort(ColumnKey, ListSortDirection.Ascending);
+        }
+
+        private void btnSaveConfig_Click(object sender, EventArgs e)
+        {
+            _currentProperties.WriteFile(tbxConfigFileRead.Text);
+        }
+
+        private void tbxConfigFileRead_TextChanged(object sender, EventArgs e)
+        {
+            tbxConfigFileWrite.Text = tbxConfigFileRead.Text;
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var index = e.RowIndex;
+
+            if(index < 0)
+            {
+                return;
+            }
+
+            var key = dataGridView1.Rows[index].Cells[0].Value;
+
+            var type = typeof(ServerProperties);
+            var properties = type.GetProperties();
+            foreach (var property in properties)
+            {
+                var prop = (dynamic)property.GetValue(_currentProperties);
+
+                if(prop.IniName != key)
+                {
+                    continue;
+                }
+
+                if (prop.Type == typeof(int))
+                {
+                    PropertyEditorInt editor = new PropertyEditorInt(prop);
+                    editor.ShowDialog();
+
+                    if (!editor.DoSave)
+                    {
+                        return;
+                    }
+                    property.SetValue(_currentProperties, editor.Property);
+                }
+                else if (prop.Type == typeof(string))
+                {
+                    PropertyEditorString editor = new PropertyEditorString(prop);
+                    editor.ShowDialog();
+
+                    if (!editor.DoSave)
+                    {
+                        return;
+                    }
+                    property.SetValue(_currentProperties, editor.Property);
+                }
+                else if (prop.Type == typeof(bool))
+                {
+                    PropertyEditorBool editor = new PropertyEditorBool(prop);
+                    editor.ShowDialog();
+
+                    if (!editor.DoSave)
+                    {
+                        return;
+                    }
+                    property.SetValue(_currentProperties, editor.Property);
+                }
+
+                LoadPropertiesToUi();
+
+                break;
+            }
         }
     }
 }
