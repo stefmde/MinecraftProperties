@@ -27,6 +27,12 @@ namespace StefmDE.MinecraftProperties.WinFormEditor
             LoadPropertiesToUi();
         }
 
+        private void btnNewConfig_Click(object sender, EventArgs e)
+        {
+            _currentProperties = new ServerProperties();
+            LoadPropertiesToUi();
+        }
+
         private void LoadPropertiesToUi()
         {
             dataGridView1.Rows.Clear();
@@ -37,7 +43,7 @@ namespace StefmDE.MinecraftProperties.WinFormEditor
             {
                 var prop = (dynamic)property.GetValue(_currentProperties);
 
-                dataGridView1.Rows.Add(prop.IniName, prop.Type.Name, prop.DefaultValue, prop.MinValue, prop.MaxValue, prop.Value, prop.AddedInVersion?.ToString(), prop.Description);
+                dataGridView1.Rows.Add(prop.IniName, prop.Type.Name, prop.DefaultValue, prop.Value, prop.MinValue, prop.MaxValue, prop.AddedInVersion?.ToString(), prop.Description);
             }
 
             dataGridView1.Sort(ColumnKey, ListSortDirection.Ascending);

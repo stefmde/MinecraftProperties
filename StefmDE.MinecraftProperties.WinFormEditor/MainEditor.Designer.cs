@@ -34,10 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnLoadConfig = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnNewConfig = new System.Windows.Forms.Button();
-            this.btnSaveConfig = new System.Windows.Forms.Button();
-            this.tbxConfigFileWrite = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.ColumnKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDefaultValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +42,10 @@
             this.ColumnMaxValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAddedInVersion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNewConfig = new System.Windows.Forms.Button();
+            this.btnSaveConfig = new System.Windows.Forms.Button();
+            this.tbxConfigFileWrite = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -112,43 +112,6 @@
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
-            // btnNewConfig
-            // 
-            this.btnNewConfig.Location = new System.Drawing.Point(1054, 26);
-            this.btnNewConfig.Name = "btnNewConfig";
-            this.btnNewConfig.Size = new System.Drawing.Size(94, 29);
-            this.btnNewConfig.TabIndex = 4;
-            this.btnNewConfig.Text = "New";
-            this.btnNewConfig.UseVisualStyleBackColor = true;
-            // 
-            // btnSaveConfig
-            // 
-            this.btnSaveConfig.Location = new System.Drawing.Point(1054, 59);
-            this.btnSaveConfig.Name = "btnSaveConfig";
-            this.btnSaveConfig.Size = new System.Drawing.Size(94, 29);
-            this.btnSaveConfig.TabIndex = 5;
-            this.btnSaveConfig.Text = "Save";
-            this.btnSaveConfig.UseVisualStyleBackColor = true;
-            this.btnSaveConfig.Click += new System.EventHandler(this.btnSaveConfig_Click);
-            // 
-            // tbxConfigFileWrite
-            // 
-            this.tbxConfigFileWrite.Location = new System.Drawing.Point(66, 60);
-            this.tbxConfigFileWrite.Name = "tbxConfigFileWrite";
-            this.tbxConfigFileWrite.Size = new System.Drawing.Size(982, 27);
-            this.tbxConfigFileWrite.TabIndex = 6;
-            this.tbxConfigFileWrite.Text = "C:\\Dev\\MinecraftProperties\\StefmDE.MinecraftProperties.TestConsole\\Samples\\Server" +
-    ".properties";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 20);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Write:";
-            // 
             // ColumnKey
             // 
             this.ColumnKey.HeaderText = "Key";
@@ -213,6 +176,42 @@
             this.ColumnDescription.Name = "ColumnDescription";
             this.ColumnDescription.ReadOnly = true;
             this.ColumnDescription.Width = 114;
+            // 
+            // btnNewConfig
+            // 
+            this.btnNewConfig.Location = new System.Drawing.Point(1054, 26);
+            this.btnNewConfig.Name = "btnNewConfig";
+            this.btnNewConfig.Size = new System.Drawing.Size(94, 29);
+            this.btnNewConfig.TabIndex = 4;
+            this.btnNewConfig.Text = "New";
+            this.btnNewConfig.UseVisualStyleBackColor = true;
+            this.btnNewConfig.Click += new System.EventHandler(this.btnNewConfig_Click);
+            // 
+            // btnSaveConfig
+            // 
+            this.btnSaveConfig.Location = new System.Drawing.Point(1054, 59);
+            this.btnSaveConfig.Name = "btnSaveConfig";
+            this.btnSaveConfig.Size = new System.Drawing.Size(94, 29);
+            this.btnSaveConfig.TabIndex = 5;
+            this.btnSaveConfig.Text = "Save";
+            this.btnSaveConfig.UseVisualStyleBackColor = true;
+            this.btnSaveConfig.Click += new System.EventHandler(this.btnSaveConfig_Click);
+            // 
+            // tbxConfigFileWrite
+            // 
+            this.tbxConfigFileWrite.Location = new System.Drawing.Point(66, 60);
+            this.tbxConfigFileWrite.Name = "tbxConfigFileWrite";
+            this.tbxConfigFileWrite.Size = new System.Drawing.Size(982, 27);
+            this.tbxConfigFileWrite.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 63);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Write:";
             // 
             // MainEditor
             // 
