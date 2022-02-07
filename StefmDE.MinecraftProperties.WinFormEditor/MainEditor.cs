@@ -51,7 +51,14 @@ namespace StefmDE.MinecraftProperties.WinFormEditor
 
         private void btnSaveConfig_Click(object sender, EventArgs e)
         {
-            _currentProperties.WriteFile(tbxConfigFileRead.Text);
+            Version version = null;
+
+            if(tbxCompatibleVersion.TextLength > 0)
+            {
+                version = new Version(tbxCompatibleVersion.Text);
+            }
+
+            _currentProperties.WriteFile(tbxConfigFileWrite.Text, chbxWriteDefaults.Checked, chbxWriteDescriptions.Checked, version);
         }
 
         private void tbxConfigFileRead_TextChanged(object sender, EventArgs e)

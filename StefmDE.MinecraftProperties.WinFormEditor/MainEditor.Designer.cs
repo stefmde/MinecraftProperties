@@ -46,6 +46,10 @@
             this.btnSaveConfig = new System.Windows.Forms.Button();
             this.tbxConfigFileWrite = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.chbxWriteDefaults = new System.Windows.Forms.CheckBox();
+            this.chbxWriteDescriptions = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbxCompatibleVersion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,9 +59,11 @@
             // 
             // tbxConfigFileRead
             // 
+            this.tbxConfigFileRead.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxConfigFileRead.Location = new System.Drawing.Point(66, 27);
             this.tbxConfigFileRead.Name = "tbxConfigFileRead";
-            this.tbxConfigFileRead.Size = new System.Drawing.Size(882, 27);
+            this.tbxConfigFileRead.Size = new System.Drawing.Size(883, 27);
             this.tbxConfigFileRead.TabIndex = 0;
             this.tbxConfigFileRead.Text = "C:\\Dev\\MinecraftProperties\\StefmDE.MinecraftProperties.TestConsole\\Samples\\Server" +
     ".properties";
@@ -74,7 +80,8 @@
             // 
             // btnLoadConfig
             // 
-            this.btnLoadConfig.Location = new System.Drawing.Point(954, 26);
+            this.btnLoadConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoadConfig.Location = new System.Drawing.Point(955, 26);
             this.btnLoadConfig.Name = "btnLoadConfig";
             this.btnLoadConfig.Size = new System.Drawing.Size(94, 29);
             this.btnLoadConfig.TabIndex = 2;
@@ -100,7 +107,7 @@
             this.ColumnMaxValue,
             this.ColumnAddedInVersion,
             this.ColumnDescription});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 107);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 141);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -108,7 +115,7 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 29;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1136, 617);
+            this.dataGridView1.Size = new System.Drawing.Size(1137, 583);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
@@ -179,7 +186,8 @@
             // 
             // btnNewConfig
             // 
-            this.btnNewConfig.Location = new System.Drawing.Point(1054, 26);
+            this.btnNewConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNewConfig.Location = new System.Drawing.Point(1055, 26);
             this.btnNewConfig.Name = "btnNewConfig";
             this.btnNewConfig.Size = new System.Drawing.Size(94, 29);
             this.btnNewConfig.TabIndex = 4;
@@ -189,7 +197,8 @@
             // 
             // btnSaveConfig
             // 
-            this.btnSaveConfig.Location = new System.Drawing.Point(1054, 59);
+            this.btnSaveConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSaveConfig.Location = new System.Drawing.Point(1055, 59);
             this.btnSaveConfig.Name = "btnSaveConfig";
             this.btnSaveConfig.Size = new System.Drawing.Size(94, 29);
             this.btnSaveConfig.TabIndex = 5;
@@ -199,9 +208,11 @@
             // 
             // tbxConfigFileWrite
             // 
+            this.tbxConfigFileWrite.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbxConfigFileWrite.Location = new System.Drawing.Point(66, 60);
             this.tbxConfigFileWrite.Name = "tbxConfigFileWrite";
-            this.tbxConfigFileWrite.Size = new System.Drawing.Size(982, 27);
+            this.tbxConfigFileWrite.Size = new System.Drawing.Size(983, 27);
             this.tbxConfigFileWrite.TabIndex = 6;
             // 
             // label2
@@ -213,11 +224,51 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Write:";
             // 
+            // chbxWriteDefaults
+            // 
+            this.chbxWriteDefaults.AutoSize = true;
+            this.chbxWriteDefaults.Location = new System.Drawing.Point(396, 96);
+            this.chbxWriteDefaults.Name = "chbxWriteDefaults";
+            this.chbxWriteDefaults.Size = new System.Drawing.Size(124, 24);
+            this.chbxWriteDefaults.TabIndex = 8;
+            this.chbxWriteDefaults.Text = "Write defaults";
+            this.chbxWriteDefaults.UseVisualStyleBackColor = true;
+            // 
+            // chbxWriteDescriptions
+            // 
+            this.chbxWriteDescriptions.AutoSize = true;
+            this.chbxWriteDescriptions.Location = new System.Drawing.Point(526, 96);
+            this.chbxWriteDescriptions.Name = "chbxWriteDescriptions";
+            this.chbxWriteDescriptions.Size = new System.Drawing.Size(151, 24);
+            this.chbxWriteDescriptions.TabIndex = 9;
+            this.chbxWriteDescriptions.Text = "Write descriptions";
+            this.chbxWriteDescriptions.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(66, 96);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(169, 20);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "CompatibleWithVersion:";
+            // 
+            // tbxCompatibleVersion
+            // 
+            this.tbxCompatibleVersion.Location = new System.Drawing.Point(241, 93);
+            this.tbxCompatibleVersion.Name = "tbxCompatibleVersion";
+            this.tbxCompatibleVersion.Size = new System.Drawing.Size(149, 27);
+            this.tbxCompatibleVersion.TabIndex = 11;
+            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1160, 736);
+            this.ClientSize = new System.Drawing.Size(1161, 736);
+            this.Controls.Add(this.tbxCompatibleVersion);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.chbxWriteDescriptions);
+            this.Controls.Add(this.chbxWriteDefaults);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbxConfigFileWrite);
             this.Controls.Add(this.btnSaveConfig);
@@ -254,5 +305,9 @@
         private DataGridViewTextBoxColumn ColumnMaxValue;
         private DataGridViewTextBoxColumn ColumnAddedInVersion;
         private DataGridViewTextBoxColumn ColumnDescription;
+        private CheckBox chbxWriteDefaults;
+        private CheckBox chbxWriteDescriptions;
+        private Label label3;
+        private TextBox tbxCompatibleVersion;
     }
 }
